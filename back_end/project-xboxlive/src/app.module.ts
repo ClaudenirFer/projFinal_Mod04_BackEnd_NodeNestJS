@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-// import { GamesController } from './games/games.controller';
-// import { GamesService } from './games/games.service';
-import { GamesModule } from './games/games.module';
+
+import { GameModule } from './game/game.module';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
-  imports: [GamesModule],
+  
+  imports: [GameModule],
   controllers: [AppController], // Controla as rotas
-  providers: [AppService]// Provddores de Métodos
+  providers: [AppService, PrismaService]// Provddores de Métodos
 })
 export class AppModule {}

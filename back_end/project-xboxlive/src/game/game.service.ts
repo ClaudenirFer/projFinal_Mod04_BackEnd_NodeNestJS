@@ -28,8 +28,10 @@ export class GameService {
   }
 
   findAll() {
-    return this.prisma.game.findMany();
-  }
+    return this.prisma.game.findMany({
+    include: this._include,
+    })
+  };
 
   findOne(id: number) {
     return this.prisma.game.findUnique({

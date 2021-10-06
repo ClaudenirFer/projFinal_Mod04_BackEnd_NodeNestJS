@@ -5,8 +5,8 @@ export declare class CreateGameDto extends Game {
     description: string;
     year: number;
     imdb: string;
-    youtubeUrl?: string;
-    gameplayUrl?: string;
+    youtubeUrl?: string | null;
+    gameplayUrl?: string | null;
     profile?: Prisma.FavoriteGameUncheckedCreateNestedManyWithoutGameInput;
     genre?: Prisma.GameGenreUncheckedCreateNestedManyWithoutGameInput;
 }

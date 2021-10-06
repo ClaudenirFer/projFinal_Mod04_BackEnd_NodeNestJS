@@ -12,70 +12,69 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GameController = void 0;
+exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
-const game_service_1 = require("./game.service");
-const create_game_dto_1 = require("./dto/create-game.dto");
-const update_game_dto_1 = require("./dto/update-game.dto");
-let GameController = class GameController {
-    constructor(gameService) {
-        this.gameService = gameService;
+const user_service_1 = require("./user.service");
+const create_user_dto_1 = require("./dto/create-user.dto");
+const update_user_dto_1 = require("./dto/update-user.dto");
+let UserController = class UserController {
+    constructor(userService) {
+        this.userService = userService;
     }
-    create(createGameDto) {
-        return this.gameService.create(createGameDto);
+    create(createUserDto) {
+        return this.userService.create(createUserDto);
     }
     findAll() {
-        return this.gameService.findAll();
+        return this.userService.findAll();
     }
     findOne(id) {
-        return this.gameService.findOne(+id);
+        return this.userService.findOne(+id);
     }
-    update(id, updateGameDto) {
-        return this.gameService.update(+id, updateGameDto);
+    update(id, updateUserDto) {
+        return this.userService.update(+id, updateUserDto);
     }
     remove(id) {
-        return this.gameService.remove(+id);
+        return this.userService.remove(+id);
     }
 };
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_game_dto_1.CreateGameDto]),
+    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
     __metadata("design:returntype", void 0)
-], GameController.prototype, "create", null);
+], UserController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], GameController.prototype, "findAll", null);
+], UserController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], GameController.prototype, "findOne", null);
+], UserController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_game_dto_1.UpdateGameDto]),
+    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
     __metadata("design:returntype", void 0)
-], GameController.prototype, "update", null);
+], UserController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
-    (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], GameController.prototype, "remove", null);
-GameController = __decorate([
-    (0, common_1.Controller)('game'),
-    __metadata("design:paramtypes", [game_service_1.GameService])
-], GameController);
-exports.GameController = GameController;
-//# sourceMappingURL=game.controller.js.map
+], UserController.prototype, "remove", null);
+UserController = __decorate([
+    (0, common_1.Controller)('user'),
+    __metadata("design:paramtypes", [user_service_1.UserService])
+], UserController);
+exports.UserController = UserController;
+//# sourceMappingURL=user.controller.js.map

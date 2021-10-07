@@ -13,11 +13,13 @@ const app_service_1 = require("./app.service");
 const game_module_1 = require("./game/game.module");
 const prisma_service_1 = require("./prisma/prisma.service");
 const user_module_1 = require("./user/user.module");
+const favorite_game_module_1 = require("./favorite-game/favorite-game.module");
+const genre_module_1 = require("./genre/genre.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [game_module_1.GameModule, user_module_1.UserModule],
+        imports: [game_module_1.GameModule, user_module_1.UserModule, favorite_game_module_1.FavoriteGameModule, genre_module_1.GenreModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService]
     })

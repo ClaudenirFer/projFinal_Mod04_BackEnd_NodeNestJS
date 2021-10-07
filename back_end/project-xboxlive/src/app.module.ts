@@ -5,11 +5,13 @@ import { AppService } from './app.service';
 import { GameModule } from './game/game.module';
 import { PrismaService } from './prisma/prisma.service';
 import { UserModule } from './user/user.module';
+import { FavoriteGameModule } from './favorite-game/favorite-game.module';
+import { GenreModule } from './genre/genre.module';
 
 
 @Module({
   
-  imports: [GameModule, UserModule],
+  imports: [GameModule, UserModule, FavoriteGameModule, GenreModule],
   controllers: [AppController], // Controla as rotas
   providers: [AppService, PrismaService]// Provddores de Métodos
 })

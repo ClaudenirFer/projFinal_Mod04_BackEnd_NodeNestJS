@@ -6,30 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GamesService = void 0;
+exports.FavoriteGameModule = void 0;
 const common_1 = require("@nestjs/common");
-let GamesService = class GamesService {
-    constructor() {
-        this.games = [
-            {
-                id: 1,
-                texto: "Primeiro"
-            },
-            {
-                id: 2,
-                texto: "Segundo"
-            }
-        ];
-    }
-    findAll() {
-        return this.games;
-    }
-    findById(id) {
-        return this.games.find(game => game.id === id);
-    }
+const favorite_game_service_1 = require("./favorite-game.service");
+const favorite_game_controller_1 = require("./favorite-game.controller");
+const prisma_service_1 = require("../prisma/prisma.service");
+let FavoriteGameModule = class FavoriteGameModule {
 };
-GamesService = __decorate([
-    (0, common_1.Injectable)()
-], GamesService);
-exports.GamesService = GamesService;
-//# sourceMappingURL=games.service.js.map
+FavoriteGameModule = __decorate([
+    (0, common_1.Module)({
+        controllers: [favorite_game_controller_1.FavoriteGameController],
+        providers: [favorite_game_service_1.FavoriteGameService, prisma_service_1.PrismaService]
+    })
+], FavoriteGameModule);
+exports.FavoriteGameModule = FavoriteGameModule;
+//# sourceMappingURL=favorite-game.module.js.map

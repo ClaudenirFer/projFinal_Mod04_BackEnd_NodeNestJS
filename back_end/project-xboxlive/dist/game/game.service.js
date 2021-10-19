@@ -18,20 +18,20 @@ let GameService = class GameService {
         this._include = {
             profile: {
                 select: {
-                    profile: true
-                }
+                    profile: true,
+                },
             },
             genre: {
                 select: {
-                    genre: true
-                }
-            }
+                    genre: true,
+                },
+            },
         };
     }
     create(data) {
         return this.prisma.game.create({
             include: this._include,
-            data
+            data,
         });
     }
     findAll() {
@@ -39,23 +39,22 @@ let GameService = class GameService {
             include: this._include,
         });
     }
-    ;
     findOne(id) {
         return this.prisma.game.findUnique({
             where: { id },
-            include: this._include
+            include: this._include,
         });
     }
     update(id, data) {
         return this.prisma.game.update({
             where: { id },
             data,
-            include: this._include
+            include: this._include,
         });
     }
     remove(id) {
         return this.prisma.game.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

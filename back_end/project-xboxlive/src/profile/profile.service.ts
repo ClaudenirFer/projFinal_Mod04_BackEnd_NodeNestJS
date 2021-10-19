@@ -5,52 +5,52 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
 export class ProfileService {
-  constructor (private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   private readonly _include = {
     favoriteGame: {
       select: {
-        game: true        
+        game: true,
       },
       user: {
         select: {
-          name: true
-        }
-      }
-    }
-  }
+          name: true,
+        },
+      },
+    },
+  };
 
   create(data: CreateProfileDto) {
     return this.prisma.profile.create({
       data,
-      include: this._include
+      include: this._include,
     });
   }
 
   findAll() {
     return this.prisma.profile.findMany({
-    include: this._include
+      include: this._include,
     });
   }
 
   findOne(id: number) {
     return this.prisma.profile.findUnique({
-      where: {id},
-      include: this._include
+      where: { id },
+      include: this._include,
     });
   }
 
   update(id: number, data: UpdateProfileDto) {
     return this.prisma.profile.update({
-      where: {id},
+      where: { id },
       data,
-      include: this._include
+      include: this._include,
     });
   }
 
   remove(id: number) {
     return this.prisma.profile.delete({
-      where: {id}
+      where: { id },
     });
   }
 }

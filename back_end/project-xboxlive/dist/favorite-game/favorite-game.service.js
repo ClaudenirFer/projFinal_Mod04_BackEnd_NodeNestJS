@@ -18,43 +18,43 @@ let FavoriteGameService = class FavoriteGameService {
         this._include = {
             profile: {
                 select: {
-                    title: true
+                    title: true,
                 },
                 game: {
                     select: {
-                        title: true
-                    }
-                }
-            }
+                        title: true,
+                    },
+                },
+            },
         };
     }
     create(data) {
         return this.prisma.favoriteGame.create({
             data,
-            include: this._include
+            include: this._include,
         });
     }
     findAll() {
         return this.prisma.favoriteGame.findMany({
-            include: this._include
+            include: this._include,
         });
     }
     findOne(id) {
         return this.prisma.favoriteGame.findUnique({
             where: { id },
-            include: this._include
+            include: this._include,
         });
     }
     update(id, data) {
         return this.prisma.favoriteGame.update({
             where: { id },
             data,
-            include: this._include
+            include: this._include,
         });
     }
     remove(id) {
         return this.prisma.favoriteGame.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

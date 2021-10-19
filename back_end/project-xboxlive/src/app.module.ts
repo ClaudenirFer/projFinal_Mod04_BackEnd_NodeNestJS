@@ -9,11 +9,15 @@ import { FavoriteGameModule } from './favorite-game/favorite-game.module';
 import { GenreModule } from './genre/genre.module';
 import { ProfileModule } from './profile/profile.module';
 
-
 @Module({
-  
-  imports: [GameModule, UserModule, FavoriteGameModule, GenreModule, ProfileModule],
+  imports: [
+    GameModule,
+    UserModule,
+    FavoriteGameModule,
+    GenreModule,
+    ProfileModule,
+  ],
   controllers: [AppController], // Controla as rotas
-  providers: [AppService, PrismaService]// Provddores de Métodos
+  providers: [AppService, PrismaService], // Provddores de Métodos
 })
 export class AppModule {}

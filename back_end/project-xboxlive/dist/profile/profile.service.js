@@ -18,43 +18,43 @@ let ProfileService = class ProfileService {
         this._include = {
             favoriteGame: {
                 select: {
-                    game: true
+                    game: true,
                 },
                 user: {
                     select: {
-                        name: true
-                    }
-                }
-            }
+                        name: true,
+                    },
+                },
+            },
         };
     }
     create(data) {
         return this.prisma.profile.create({
             data,
-            include: this._include
+            include: this._include,
         });
     }
     findAll() {
         return this.prisma.profile.findMany({
-            include: this._include
+            include: this._include,
         });
     }
     findOne(id) {
         return this.prisma.profile.findUnique({
             where: { id },
-            include: this._include
+            include: this._include,
         });
     }
     update(id, data) {
         return this.prisma.profile.update({
             where: { id },
             data,
-            include: this._include
+            include: this._include,
         });
     }
     remove(id) {
         return this.prisma.profile.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

@@ -18,15 +18,15 @@ let GenreService = class GenreService {
         this._include = {
             game: {
                 select: {
-                    game: true
-                }
-            }
+                    game: true,
+                },
+            },
         };
     }
     create(data) {
         return this.prisma.genre.create({
             data,
-            include: this._include
+            include: this._include,
         });
     }
     findAll() {
@@ -35,19 +35,19 @@ let GenreService = class GenreService {
     findOne(id) {
         return this.prisma.genre.findUnique({
             where: { id },
-            include: this._include
+            include: this._include,
         });
     }
     update(id, data) {
         return this.prisma.genre.update({
             where: { id },
             data,
-            include: this._include
+            include: this._include,
         });
     }
     remove(id) {
         return this.prisma.genre.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

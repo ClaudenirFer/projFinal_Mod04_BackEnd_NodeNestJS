@@ -16,7 +16,7 @@ let FavoriteGameModule = class FavoriteGameModule {
 FavoriteGameModule = __decorate([
     (0, common_1.Module)({
         controllers: [favorite_game_controller_1.FavoriteGameController],
-        providers: [favorite_game_service_1.FavoriteGameService, prisma_service_1.PrismaService]
+        providers: [favorite_game_service_1.FavoriteGameService, prisma_service_1.PrismaService],
     })
 ], FavoriteGameModule);
 exports.FavoriteGameModule = FavoriteGameModule;

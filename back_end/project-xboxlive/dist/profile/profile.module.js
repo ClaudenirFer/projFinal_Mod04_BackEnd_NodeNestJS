@@ -16,7 +16,7 @@ let ProfileModule = class ProfileModule {
 ProfileModule = __decorate([
     (0, common_1.Module)({
         controllers: [profile_controller_1.ProfileController],
-        providers: [profile_service_1.ProfileService, prisma_service_1.PrismaService]
+        providers: [profile_service_1.ProfileService, prisma_service_1.PrismaService],
     })
 ], ProfileModule);
 exports.ProfileModule = ProfileModule;

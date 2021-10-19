@@ -16,7 +16,7 @@ let GenreModule = class GenreModule {
 GenreModule = __decorate([
     (0, common_1.Module)({
         controllers: [genre_controller_1.GenreController],
-        providers: [genre_service_1.GenreService, prisma_service_1.PrismaService]
+        providers: [genre_service_1.GenreService, prisma_service_1.PrismaService],
     })
 ], GenreModule);
 exports.GenreModule = GenreModule;

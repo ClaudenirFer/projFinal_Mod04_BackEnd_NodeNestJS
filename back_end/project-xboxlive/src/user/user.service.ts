@@ -5,44 +5,44 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
-  constructor (private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   private readonly _include = {
-    profile : {
+    profile: {
       select: {
-        id: true
-      }
-    }
-  }
-  
+        id: true,
+      },
+    },
+  };
+
   create(data: CreateUserDto) {
     // return 'This action adds a new user';
     return this.prisma.user.create({
       data,
-      include: this._include
-    })
+      include: this._include,
+    });
   }
 
   findAll() {
-    return this.prisma.user.findMany()
+    return this.prisma.user.findMany();
   }
 
   findOne(id: number) {
     return this.prisma.user.findUnique({
-      where: {id}
-    })
+      where: { id },
+    });
   }
 
   update(id: number, data: UpdateUserDto) {
     return this.prisma.user.update({
-      where: {id},
-      data
+      where: { id },
+      data,
     });
   }
 
   remove(id: number) {
     return this.prisma.user.delete({
-      where: {id}
+      where: { id },
     });
   }
 }

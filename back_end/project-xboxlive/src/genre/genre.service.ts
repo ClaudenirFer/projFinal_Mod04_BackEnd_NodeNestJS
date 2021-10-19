@@ -5,19 +5,19 @@ import { UpdateGenreDto } from './dto/update-genre.dto';
 
 @Injectable()
 export class GenreService {
-  constructor (private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
   private readonly _include = {
     game: {
       select: {
-        game: true
-      }
-    }
-  }
+        game: true,
+      },
+    },
+  };
 
   create(data: CreateGenreDto) {
     return this.prisma.genre.create({
       data,
-      include: this._include
+      include: this._include,
     });
   }
 
@@ -27,22 +27,22 @@ export class GenreService {
 
   findOne(id: number) {
     return this.prisma.genre.findUnique({
-      where: {id},
-      include: this._include
+      where: { id },
+      include: this._include,
     });
   }
 
   update(id: number, data: UpdateGenreDto) {
     return this.prisma.genre.update({
-      where: {id},
+      where: { id },
       data,
-      include: this._include
+      include: this._include,
     });
   }
 
   remove(id: number) {
     return this.prisma.genre.delete({
-      where: {id}
+      where: { id },
     });
   }
 }

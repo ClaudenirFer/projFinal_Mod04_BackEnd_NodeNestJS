@@ -18,15 +18,15 @@ let UserService = class UserService {
         this._include = {
             profile: {
                 select: {
-                    id: true
-                }
-            }
+                    id: true,
+                },
+            },
         };
     }
     create(data) {
         return this.prisma.user.create({
             data,
-            include: this._include
+            include: this._include,
         });
     }
     findAll() {
@@ -34,18 +34,18 @@ let UserService = class UserService {
     }
     findOne(id) {
         return this.prisma.user.findUnique({
-            where: { id }
+            where: { id },
         });
     }
     update(id, data) {
         return this.prisma.user.update({
             where: { id },
-            data
+            data,
         });
     }
     remove(id) {
         return this.prisma.user.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

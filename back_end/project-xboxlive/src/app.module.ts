@@ -1,23 +1,17 @@
+import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
-import { GameModule } from './game/game.module';
-import { PrismaService } from './prisma/prisma.service';
 import { UserModule } from './user/user.module';
-import { FavoriteGameModule } from './favorite-game/favorite-game.module';
-import { GenreModule } from './genre/genre.module';
-import { ProfileModule } from './profile/profile.module';
+import { GamesModule } from './games/games.module';
+import { GenresModule } from './genres/genres.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [
-    GameModule,
-    UserModule,
-    FavoriteGameModule,
-    GenreModule,
-    ProfileModule,
-  ],
-  controllers: [AppController], // Controla as rotas
-  providers: [AppService, PrismaService], // Provddores de Métodos
+  controllers: [AppController],
+  imports: [UserModule, GamesModule, GenresModule, AuthModule],
+  providers: [AppService, { provide: APP_GUARD, useClass: JwtAuthGuard }],
 })
 export class AppModule {}

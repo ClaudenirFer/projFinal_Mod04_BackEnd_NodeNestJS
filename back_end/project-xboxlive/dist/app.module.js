@@ -7,28 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const auth_module_1 = require("./auth/auth.module");
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const game_module_1 = require("./game/game.module");
-const prisma_service_1 = require("./prisma/prisma.service");
 const user_module_1 = require("./user/user.module");
-const favorite_game_module_1 = require("./favorite-game/favorite-game.module");
-const genre_module_1 = require("./genre/genre.module");
-const profile_module_1 = require("./profile/profile.module");
+const games_module_1 = require("./games/games.module");
+const genres_module_1 = require("./genres/genres.module");
+const core_1 = require("@nestjs/core");
+const jwt_auth_guard_1 = require("./auth/jwt-auth.guard");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            game_module_1.GameModule,
-            user_module_1.UserModule,
-            favorite_game_module_1.FavoriteGameModule,
-            genre_module_1.GenreModule,
-            profile_module_1.ProfileModule,
-        ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService, prisma_service_1.PrismaService],
+        imports: [user_module_1.UserModule, games_module_1.GamesModule, genres_module_1.GenresModule, auth_module_1.AuthModule],
+        providers: [app_service_1.AppService, { provide: core_1.APP_GUARD, useClass: jwt_auth_guard_1.JwtAuthGuard }],
     })
 ], AppModule);
 exports.AppModule = AppModule;

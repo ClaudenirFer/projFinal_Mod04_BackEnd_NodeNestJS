@@ -1,12 +1,14 @@
-import { Prisma } from '@prisma/client';
+import { Type } from 'class-transformer';
 import {
-  IsInt,
+  IsArray,
+  IsBoolean,
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUrl,
+  ValidateNested,
 } from 'class-validator';
 import { User } from '../entities/user.entity';
+import { CreateProfileDto } from 'src/profiles/dto/create-profile.dto';
 
 export class CreateUserDto extends User {
   @IsString()
@@ -15,11 +17,7 @@ export class CreateUserDto extends User {
 
   @IsString()
   @IsNotEmpty()
-  surname: string;
-
-  @IsString()
-  @IsNotEmpty()
-  cpf: string;
+  lastname: string;
 
   @IsString()
   @IsNotEmpty()
@@ -29,7 +27,17 @@ export class CreateUserDto extends User {
   @IsNotEmpty()
   password: string;
 
-  @IsInt()
+  @IsString()
+  @IsNotEmpty()
+  cpf: string;
+
+  @IsBoolean()
+  @IsNotEmpty()
+  admin: boolean;
+
+  @ValidateNested({ each: true })
+  @Type(() => CreateProfileDto)
+  @IsArray()
   @IsOptional()
-  profile?: Prisma.ProfileUncheckedCreateNestedManyWithoutUserInput;
+  profiles?: CreateProfileDto[];
 }

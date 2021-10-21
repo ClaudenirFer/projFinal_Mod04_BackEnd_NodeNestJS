@@ -12,24 +12,24 @@ export declare class UserService {
     }>;
     findAll(): import(".prisma/client").PrismaPromise<(import(".prisma/client").User & {
         profiles: {
+            id: number;
             nickname: string;
             image: string;
-            id: number;
         }[];
     })[]>;
     findById(id: number): Prisma.Prisma__UserClient<import(".prisma/client").User & {
         profiles: {
+            id: number;
             nickname: string;
             image: string;
-            id: number;
         }[];
     }>;
     findByEmail(email: string): Prisma.Prisma__UserClient<import(".prisma/client").User>;
     update(id: number, data: UpdateUserDto): Prisma.Prisma__UserClient<import(".prisma/client").User & {
         profiles: {
+            id: number;
             nickname: string;
             image: string;
-            id: number;
         }[];
     }>;
     remove(id: number): Prisma.Prisma__UserClient<import(".prisma/client").User>;
